@@ -25,8 +25,9 @@ import {
   Fade,
 } from "@material-ui/core";
 // logo
-import logo from "./logo.svg";
+import logo from "./Ronas-Network-Official-Logo.png";
 import google from "../../images/google.svg";
+import autosize from 'autosize';
 
 const styles = theme => ({
     container: {
@@ -55,7 +56,7 @@ const styles = theme => ({
         },
       },
       logotypeImage: {
-        width: 165,
+        width: 800,
         marginBottom: theme.spacing(4),
       },
       logotypeText: {
@@ -255,8 +256,8 @@ class Login extends React.Component {
             <Grid container className={classes.container}>
 
               <div className={classes.logotypeContainer}>
-              <img src={logo} alt="logo" className={classes.logotypeImage} />
-              <Typography className={classes.logotypeText}>Material Admin</Typography>
+              <img src={logo} alt="Logo" className={classes.logotypeImage} />
+              <Typography className={classes.logotypeText}>VodeVI</Typography>
               </div>
                 <div className={classes.formContainer}>
                 <div className={classes.form}>
