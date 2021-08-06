@@ -42,7 +42,7 @@ const styles = (theme) => ({
     height: "100%",
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
+    justifyContent: "start",
     alignItems: "center",
     [theme.breakpoints.down("md")]: {
       width: "50%",
@@ -52,13 +52,13 @@ const styles = (theme) => ({
     },
   },
   logotypeImage: {
-    width: 800,
-    marginBottom: theme.spacing(4),
+    width: 400,
+    marginTop: 100,
   },
   logotypeText: {
     color: "white",
     fontWeight: 500,
-    fontSize: 84,
+    fontSize: 40,
     [theme.breakpoints.down("md")]: {
       fontSize: 48,
     },
@@ -82,11 +82,7 @@ const styles = (theme) => ({
     fontSize: 18,
   },
   greeting: {
-    fontWeight: 500,
-    textAlign: "center",
-    marginTop: theme.spacing(4),
-  },
-  subGreeting: {
+    fontSize: 30,
     fontWeight: 500,
     textAlign: "center",
     marginTop: theme.spacing(2),
@@ -267,9 +263,6 @@ class Login extends React.Component {
             </Tabs>
             {this.state.activeTabId === 0 && (
               <React.Fragment>
-                <Typography variant="h1" className={classes.greeting}>
-                  Good Morning, User
-                </Typography>
                 <Button size="large" className={classes.googleButton}>
                   <img
                     src={google}
@@ -355,10 +348,7 @@ class Login extends React.Component {
             )}
             {this.state.activeTabId === 1 && (
               <React.Fragment>
-                <Typography variant="h1" className={classes.greeting}>
-                  Welcome!
-                </Typography>
-                <Typography variant="h2" className={classes.subGreeting}>
+                <Typography variant="h2" className={classes.greeting}>
                   Create your account
                 </Typography>
                 <Fade in={this.state.error}>
@@ -467,18 +457,10 @@ class Login extends React.Component {
               </React.Fragment>
             )}
           </div>
-          <Typography color="primary" className={classes.copyright}>
-            © 2014-{new Date().getFullYear()}{" "}
-            <a
-              style={{ textDecoration: "none", color: "inherit" }}
-              href="https://flatlogic.com"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Flatlogic
-            </a>
-            , LLC. All rights reserved.
-          </Typography>
+          <Typography
+            color="primary"
+            className={classes.copyright}
+          ></Typography>
         </div>
       </Grid>
       // <h1>{classes}</h1>
