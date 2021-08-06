@@ -23,6 +23,7 @@ import {
 } from "@material-ui/core";
 // logo
 import logo from "./Ronas-Network-Official-Logo.png";
+import backgroundImage from "./background.jpg";
 import google from "../../images/google.svg";
 
 const styles = (theme) => ({
@@ -37,17 +38,17 @@ const styles = (theme) => ({
     left: 0,
   },
   logotypeContainer: {
-    backgroundColor: theme.palette.primary.main,
+    backgroundImage: `url(${backgroundImage})`,
     width: "60%",
     height: "100%",
     display: "flex",
     flexDirection: "column",
     justifyContent: "start",
     alignItems: "center",
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down("sm")]: {
       width: "50%",
     },
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down("sm")]: {
       display: "none",
     },
   },
@@ -59,7 +60,9 @@ const styles = (theme) => ({
     color: "white",
     fontWeight: 500,
     fontSize: 40,
-    [theme.breakpoints.down("md")]: {
+    fontFamily: "Lucida Console",
+    textShadow: "0 0 12px #abcbe0, 0 0 12px #abcbe0",
+    [theme.breakpoints.down("sm")]: {
       fontSize: 48,
     },
   },
@@ -70,7 +73,7 @@ const styles = (theme) => ({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down("sm")]: {
       width: "50%",
     },
   },
@@ -161,7 +164,7 @@ const styles = (theme) => ({
   copyright: {
     marginTop: theme.spacing(4),
     whiteSpace: "nowrap",
-    [theme.breakpoints.up("md")]: {
+    [theme.breakpoints.up("sm")]: {
       position: "absolute",
       bottom: theme.spacing(2),
     },
