@@ -250,7 +250,9 @@ class Login extends React.Component {
       <Grid container className={classes.container}>
         <div className={classes.logotypeContainer}>
           <img src={logo} alt="Logo" className={classes.logotypeImage} />
-          <Typography className={classes.logotypeText}>Vodevi</Typography>
+          <Typography className={classes.logotypeText}>
+            Vodevi Portal
+          </Typography>
         </div>
         <div className={classes.formContainer}>
           <div className={classes.form}>
