@@ -20,6 +20,8 @@ jobs:
         run: |
           yarn install
           npm run build:dev
+        env:
+          CI: ""
 
       - name: List output files
         run: find build/ -print
