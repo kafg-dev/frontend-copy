@@ -21,9 +21,6 @@ import {
   TextField,
   Fade,
 } from "@material-ui/core";
-// logo
-import logo from "./Ronas-Network-Official-Logo.png";
-import backgroundImage from "./background.jpg";
 import google from "../../images/google.svg";
 
 const styles = (theme) => ({
@@ -38,13 +35,15 @@ const styles = (theme) => ({
     left: 0,
   },
   logotypeContainer: {
-    backgroundImage: `url(${backgroundImage})`,
+    backgroundImage: `url(${
+      process.env.PUBLIC_URL + "/images/login/background.jpg"
+    })`,
+    backgroundSize: "cover",
     width: "60%",
     height: "100%",
     display: "flex",
-    flexDirection: "column",
-    justifyContent: "start",
-    alignItems: "center",
+    justifyContent: "flex-end",
+    alignItems: "flex-end",
     [theme.breakpoints.down("sm")]: {
       width: "50%",
     },
@@ -53,8 +52,9 @@ const styles = (theme) => ({
     },
   },
   logotypeImage: {
-    width: 400,
-    marginTop: 100,
+    width: "42.5%",
+    marginBottom: "3.5%",
+    marginRight: "2.5%",
   },
   logotypeText: {
     color: "white",
@@ -245,12 +245,16 @@ class Login extends React.Component {
     const { classes } = this.props;
     return (
       // <div className="auth-page">
+      //  <Typography className={classes.logotypeText}>Vodevi</Typography>
 
       // </div>
       <Grid container className={classes.container}>
         <div className={classes.logotypeContainer}>
-          <img src={logo} alt="Logo" className={classes.logotypeImage} />
-          <Typography className={classes.logotypeText}>Vodevi</Typography>
+          <img
+            src={process.env.PUBLIC_URL + "/images/logo.png"}
+            alt="Logo"
+            className={classes.logotypeImage}
+          />
         </div>
         <div className={classes.formContainer}>
           <div className={classes.form}>
