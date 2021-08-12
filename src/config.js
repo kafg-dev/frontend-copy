@@ -1,7 +1,13 @@
-const hostApi = process.env.NODE_ENV === "development" ? "http://localhost" : "https://sing-generator-node.herokuapp.com";
+const hostApi =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost"
+    : "https://portal.vodevi.com";
 const portApi = process.env.NODE_ENV === "development" ? 8080 : "";
 const baseURLApi = `${hostApi}${portApi ? `:${portApi}` : ``}/api`;
-const redirectUrl = process.env.NODE_ENV === "development" ? "http://localhost:3000/sing-app-react" : "https://demo.flatlogic.com/sing-app-react";
+const redirectUrl =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:3000/sing-app-react"
+    : "https://demo.flatlogic.com/sing-app-react";
 
 export default {
   redirectUrl,
@@ -11,8 +17,8 @@ export default {
   remote: "https://sing-generator-node.herokuapp.com",
   isBackend: process.env.REACT_APP_BACKEND,
   auth: {
-    email: 'admin@flatlogic.com',
-    password: 'password'
+    email: "lashween0",
+    password: "pass0",
   },
   app: {
     colors: {
@@ -26,5 +32,5 @@ export default {
       black: "#13191D",
       salat: "#21AE8C",
     },
-  }
+  },
 };

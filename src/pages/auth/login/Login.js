@@ -190,8 +190,8 @@ class Login extends React.Component {
     super(props);
 
     this.state = {
-      email: "admin@flatlogic.com",
-      password: "password",
+      email: "",
+      password: "",
       isLoading: false,
       activeTabId: 0,
       error: null,
@@ -270,21 +270,6 @@ class Login extends React.Component {
             </Tabs>
             {this.state.activeTabId === 0 && (
               <React.Fragment>
-                <Button size="large" className={classes.googleButton}>
-                  <img
-                    src={google}
-                    alt="google"
-                    className={classes.googleIcon}
-                  />
-                  &nbsp;Sign in with Google
-                </Button>
-                <div className={classes.formDividerContainer}>
-                  <div className={classes.formDivider} />
-                  <Typography className={classes.formDividerWord}>
-                    or
-                  </Typography>
-                  <div className={classes.formDivider} />
-                </div>
                 <Fade in={this.state.error}>
                   <Typography
                     color="secondary"
