@@ -6,15 +6,12 @@ import { connect } from "react-redux";
 import { loginUser, receiveToken, doInit } from "../../../actions/auth";
 import jwt from "jsonwebtoken";
 import { push } from "connected-react-router";
-import classnames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 import {
   Grid,
   CircularProgress,
   Typography,
   Button,
-  Tabs,
-  Tab,
   TextField,
   Fade,
 } from "@material-ui/core";
@@ -94,11 +91,12 @@ class Login extends React.Component {
           />
         </div>
         <div className={classes.formContainer}>
+          <h1 className={"display-4 " + classes.heading}>Vodevi Portal</h1>
           <div className={classes.form}>
             <React.Fragment>
-              <Fade in={this.state.error}>
+              <Fade in={this.props.errorMessage}>
                 <Typography color="secondary" className={classes.errorMessage}>
-                  Something is wrong with your login or password :(
+                  {this.props.errorMessage}
                 </Typography>
               </Fade>
               <TextField
@@ -112,7 +110,7 @@ class Login extends React.Component {
                 value={this.state.email}
                 onChange={this.changeEmail}
                 margin="normal"
-                placeholder="Email Address"
+                placeholder="Username"
                 type="email"
                 fullWidth
               />

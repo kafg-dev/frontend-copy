@@ -55,29 +55,12 @@ export const styles = (theme) => ({
   form: {
     width: 320,
   },
-  tab: {
-    fontWeight: 400,
-    fontSize: 18,
-  },
-  greeting: {
-    fontSize: 30,
-    fontWeight: 500,
-    textAlign: "center",
-    marginTop: theme.spacing(2),
-  },
-  googleButton: {
-    marginTop: theme.spacing(6),
-    // boxShadow: theme.customShadows.widget,
-    backgroundColor: "white",
-    width: "100%",
-    textTransform: "none",
-  },
-  googleButtonCreating: {
-    marginTop: 0,
-  },
-  googleIcon: {
-    width: 30,
-    marginRight: theme.spacing(2),
+  heading: {
+    marginBottom: 40,
+    [theme.breakpoints.down("sm")]: {
+      fontSize: 25,
+      marginBottom: 20,
+    },
   },
   creatingButtonContainer: {
     marginTop: theme.spacing(2.5),
