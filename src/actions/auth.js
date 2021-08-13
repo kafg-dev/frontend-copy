@@ -20,12 +20,12 @@ export const AUTH_INIT_ERROR = "AUTH_INIT_ERROR";
 export const REGISTER_REQUEST = "REGISTER_REQUEST";
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
 
-async function findMe() {
+async function findMe(user) {
   //if (config.isBackend) {
   //const response = await axios.get("/auth/me");
   //return response.data;
   //} else {
-  return mockUser;
+  return { ...mockUser, firstName: user.fullname };
   //}
 }
 
@@ -36,7 +36,7 @@ export function authError(payload) {
   };
 }
 
-export function doInit() {
+export function doInit(user) {
   return async (dispatch) => {
     let currentUser = null;
     if (!config.isBackend) {
@@ -51,7 +51,7 @@ export function doInit() {
       try {
         let token = localStorage.getItem("token");
         if (token) {
-          currentUser = await findMe();
+          currentUser = await findMe(user);
         }
         dispatch({
           type: AUTH_INIT_SUCCESS,
@@ -132,8 +132,9 @@ export function loginUser(creds) {
           })
           .then((res) => {
             const token = res.data.token;
+            const user = res.data.user;
             dispatch(receiveToken(token));
-            dispatch(doInit());
+            dispatch(doInit(user));
             dispatch(push("/app"));
           })
           .catch((err) => {
