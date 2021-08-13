@@ -6,6 +6,7 @@ import { Container, Alert, Button } from "reactstrap";
 import Widget from "../../../components/Widget";
 import { registerUser, authError, loginUser } from "../../../actions/auth";
 import microsoft from "../../../images/microsoft.png";
+import "./register.css";
 
 class Register extends React.Component {
   static propTypes = {
