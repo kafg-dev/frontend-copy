@@ -113,15 +113,15 @@ class Sidebar extends React.Component {
               index="main"
               childrenLinks={[
                 {
-                  header: "Analytics",
+                  header: "Statistics",
                   link: "/app/main/analytics",
                 },
                 {
-                  header: "Visits",
+                  header: "Call Management",
                   link: "/app/main/dashboard",
                 },
                 {
-                  header: "Widgets",
+                  header: "History Logs",
                   link: "/app/main/widgets",
                 },
               ]}
@@ -138,7 +138,7 @@ class Sidebar extends React.Component {
               iconName="flaticon-user"
               link="/admin"
               index="admin"
-              label="Real App"
+              //label="Real App"
               exact={false}
               childrenLinks={[
                 {
@@ -159,7 +159,7 @@ class Sidebar extends React.Component {
                 },
               ]}
             />
-            <LinksGroup
+            {/* <LinksGroup
               header="Chat"
               link="/app/chat"
               isHeader
@@ -542,13 +542,12 @@ class Sidebar extends React.Component {
                   ],
                 },
               ]}
-            />
+            /> */}
           </ul>
+          {/*
           <h5 className={s.navTitle}>
             LABELS
-            {/* eslint-disable-next-line */}
           </h5>
-          {/* eslint-disable */}
           <ul className={s.sidebarLabels}>
             <li>
               <a href="#">
@@ -569,7 +568,6 @@ class Sidebar extends React.Component {
               </a>
             </li>
           </ul>
-          {/* eslint-enable */}
           <h5 className={s.navTitle}>PROJECTS</h5>
           <div className={s.sidebarAlerts}>
             {this.props.alertsList.map(
@@ -596,7 +594,7 @@ class Sidebar extends React.Component {
                 </Alert>
               )
             )}
-          </div>
+                </div> */}
         </nav>
       </div>
     );
