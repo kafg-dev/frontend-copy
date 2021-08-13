@@ -17,6 +17,7 @@ class Register extends React.Component {
 
     this.state = {
       email: "",
+      name: "",
       phoneNumber: "",
       password: "",
       confirmPassword: "",
@@ -24,6 +25,7 @@ class Register extends React.Component {
 
     this.doRegister = this.doRegister.bind(this);
     this.changeEmail = this.changeEmail.bind(this);
+    this.changeName = this.changeName.bind(this);
     this.changePhoneNumber = this.changePhoneNumber.bind(this);
     this.changePassword = this.changePassword.bind(this);
     this.changeConfirmPassword = this.changeConfirmPassword.bind(this);
@@ -35,6 +37,10 @@ class Register extends React.Component {
 
   changeEmail(event) {
     this.setState({ email: event.target.value });
+  }
+
+  changeName(event) {
+    this.setState({ name: event.target.value });
   }
 
   changePhoneNumber(event) {
@@ -76,6 +82,8 @@ class Register extends React.Component {
       this.props.dispatch(
         registerUser({
           email: this.state.email,
+          name: this.state.name,
+          phoneNumber: this.state.phoneNumber,
           password: this.state.password,
         })
       );
@@ -102,6 +110,17 @@ class Register extends React.Component {
                   {this.props.errorMessage}
                 </Alert>
               )}
+              <div className="form-group">
+                <input
+                  className="form-control no-border"
+                  value={this.state.name}
+                  onChange={this.changeName}
+                  type="text"
+                  required
+                  name="name"
+                  placeholder="Name"
+                />
+              </div>
               <div className="form-group">
                 <input
                   className="form-control no-border"

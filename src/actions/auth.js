@@ -227,13 +227,18 @@ export function registerUser(creds) {
 
       if (creds.email.length > 0 && creds.password.length > 0) {
         axios
-          .post("/auth/signup", creds)
+          .post("/register", {
+            username: creds.email,
+            password: creds.password,
+            fullname: creds.name,
+            role: "client",
+          })
           .then((res) => {
             dispatch({
               type: REGISTER_SUCCESS,
             });
             toast.success(
-              "You've been registered successfully. Please check your email for verification link"
+              "You've been registered successfully." // Please check your email for verification link"
             );
             dispatch(push("/user/profile"));
           })
