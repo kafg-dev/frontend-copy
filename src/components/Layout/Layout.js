@@ -140,7 +140,7 @@ class Layout extends React.Component {
         <Sidebar />
         <div className={s.wrap}>
           <Header />
-          <Helper />
+          {/* <Helper> */}
 
           <Hammer onSwipe={this.handleSwipe}>
             <main className={s.content}>
