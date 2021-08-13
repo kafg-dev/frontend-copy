@@ -163,7 +163,7 @@ class Register extends React.Component {
                   type="password"
                   required
                   name="confirmPassword"
-                  placeholder="Confirm"
+                  placeholder="Confirm Password"
                 />
               </div>
               <Button
