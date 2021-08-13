@@ -154,7 +154,6 @@ class Register extends React.Component {
               >
                 {this.props.isFetching ? "Loading..." : "Register"}
               </Button>
-              <p className="widget-auth-info">or sign up with</p>
             </form>
             <p className="widget-auth-info">
               Already have the account? Login now!
