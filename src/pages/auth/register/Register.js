@@ -175,11 +175,9 @@ class Register extends React.Component {
                 {this.props.isFetching ? "Loading..." : "Register"}
               </Button>
             </form>
-            <p className="widget-auth-info">
-              Already have the account? Login now!
-            </p>
+            <p className="widget-auth-info">Already have an account?</p>
             <Link className="d-block text-center" to="login">
-              Enter the account
+              Login
             </Link>
           </Widget>
         </Container>
