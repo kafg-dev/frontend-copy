@@ -120,7 +120,6 @@ export function loginUser(creds) {
       dispatch(receiveToken("token"));
       dispatch(doInit());
       dispatch(push("/app"));
-      console.log(creds);
     } else {
       dispatch({
         type: LOGIN_REQUEST,
@@ -132,15 +131,13 @@ export function loginUser(creds) {
             password: creds.password,
           })
           .then((res) => {
-            console.log(res, res.data.token);
             const token = res.data.token;
             dispatch(receiveToken(token));
             dispatch(doInit());
             dispatch(push("/app"));
           })
           .catch((err) => {
-            console.log(err.response.data.msg);
-            dispatch(authError(err.response.data.msg));
+            dispatch(authError(err?.response?.data?.msg));
           });
       } else {
         dispatch(authError("Something was wrong. Try again"));

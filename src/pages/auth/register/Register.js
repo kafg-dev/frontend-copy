@@ -4,8 +4,7 @@ import { withRouter, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { Container, Alert, Button } from "reactstrap";
 import Widget from "../../../components/Widget";
-import { registerUser, authError, loginUser } from "../../../actions/auth";
-import microsoft from "../../../images/microsoft.png";
+import { registerUser, authError } from "../../../actions/auth";
 import "./register.css";
 
 class Register extends React.Component {
@@ -30,6 +29,8 @@ class Register extends React.Component {
     this.changeConfirmPassword = this.changeConfirmPassword.bind(this);
     this.checkPassword = this.checkPassword.bind(this);
     this.isPasswordValid = this.isPasswordValid.bind(this);
+
+    props.dispatch(authError(""));
   }
 
   changeEmail(event) {

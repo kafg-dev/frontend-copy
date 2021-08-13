@@ -3,7 +3,12 @@ import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
 import config from "../../../config";
 import { connect } from "react-redux";
-import { loginUser, receiveToken, doInit } from "../../../actions/auth";
+import {
+  loginUser,
+  receiveToken,
+  doInit,
+  authError,
+} from "../../../actions/auth";
 import jwt from "jsonwebtoken";
 import { push } from "connected-react-router";
 import { withStyles } from "@material-ui/core/styles";
@@ -45,6 +50,8 @@ class Login extends React.Component {
     this.changeEmail = this.changeEmail.bind(this);
     this.changePassword = this.changePassword.bind(this);
     this.signUp = this.signUp.bind(this);
+
+    props.dispatch(authError(""));
   }
 
   changeEmail(event) {
