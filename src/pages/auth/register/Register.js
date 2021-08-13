@@ -18,14 +18,14 @@ class Register extends React.Component {
 
     this.state = {
       email: "",
+      phoneNumber: "",
       password: "",
       confirmPassword: "",
     };
 
     this.doRegister = this.doRegister.bind(this);
-    this.googleLogin = this.googleLogin.bind(this);
-    this.microsoftLogin = this.microsoftLogin.bind(this);
     this.changeEmail = this.changeEmail.bind(this);
+    this.changePhoneNumber = this.changePhoneNumber.bind(this);
     this.changePassword = this.changePassword.bind(this);
     this.changeConfirmPassword = this.changeConfirmPassword.bind(this);
     this.checkPassword = this.checkPassword.bind(this);
@@ -34,6 +34,10 @@ class Register extends React.Component {
 
   changeEmail(event) {
     this.setState({ email: event.target.value });
+  }
+
+  changePhoneNumber(event) {
+    this.setState({ phoneNumber: event.target.value });
   }
 
   changePassword(event) {
@@ -77,21 +81,13 @@ class Register extends React.Component {
     }
   }
 
-  googleLogin() {
-    this.props.dispatch(loginUser({ social: "google" }));
-  }
-
-  microsoftLogin() {
-    this.props.dispatch(loginUser({ social: "microsoft" }));
-  }
-
   render() {
     return (
       <div className="auth-page">
         <Container>
           <h5 className="auth-logo">
             <i className="la la-circle text-gray" />
-            Sing App React
+            Vodevi Portal
             <i className="la la-circle text-warning" />
           </h5>
           <Widget
@@ -114,6 +110,17 @@ class Register extends React.Component {
                   required
                   name="email"
                   placeholder="Email"
+                />
+              </div>
+              <div className="form-group">
+                <input
+                  className="form-control no-border"
+                  value={this.state.phoneNumber}
+                  onChange={this.changePhoneNumber}
+                  type="phoneNumber"
+                  required
+                  name="phoneNumber"
+                  placeholder="Phone Number"
                 />
               </div>
               <div className="form-group">
@@ -148,27 +155,6 @@ class Register extends React.Component {
                 {this.props.isFetching ? "Loading..." : "Register"}
               </Button>
               <p className="widget-auth-info">or sign up with</p>
-              <div className="social-buttons">
-                <Button
-                  onClick={this.googleLogin}
-                  color="primary"
-                  className="social-button mb-2"
-                >
-                  <i className="social-icon social-google" />
-                  <p className="social-text">GOOGLE</p>
-                </Button>
-                <Button
-                  onClick={this.microsoftLogin}
-                  color="success"
-                  className="social-button"
-                >
-                  <i
-                    className="social-icon social-microsoft"
-                    style={{ backgroundImage: `url(${microsoft})` }}
-                  />
-                  <p className="social-text">MICROSOFT</p>
-                </Button>
-              </div>
             </form>
             <p className="widget-auth-info">
               Already have the account? Login now!

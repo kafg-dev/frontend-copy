@@ -2,3 +2,10 @@
   background-image: url("/images/signup/background.jpg");
   background-size: cover;
 }
+
+@media (max-width: 599px) {
+  .auth-page {
+    background-image: none;
+    background-size: cover;
+  }
+}
