@@ -29,6 +29,7 @@ import {
   closeSidebar,
   changeActiveSidebarItem,
 } from "../../actions/navigation";
+import { Link } from "react-router-dom";
 
 import adminDefault from "../../images/chat/chat2.png";
 import MenuIcon from "../../images/sidebar/Fill/MenuIcon";
@@ -240,7 +241,7 @@ class Header extends React.Component {
             },
           }}
         /> */}
-        <Nav>
+        {/* <Nav>
           <NavItem>
             <NavLink
               className={`d-md-down-none ${s.toggleSidebar}`}
@@ -317,17 +318,21 @@ class Header extends React.Component {
           &nbsp; sing &nbsp;
           <i className="fa fa-circle text-danger mr-n-sm" />
           <i className="fa fa-circle text-primary" />
-        </NavLink>
+        </NavLink> */}
 
         <Nav className="ml-auto">
           <Dropdown
             nav
-            isOpen={this.state.notificationsOpen}
+            //isOpen={this.state.notificationsOpen}
             toggle={this.toggleNotifications}
             id="basic-nav-dropdown"
-            className={`${s.notificationsMenu}`}
+            className={"user-info " + `${s.notificationsMenu}`}
           >
-            <DropdownToggle nav caret className={s.headerSvgFlipColor}>
+            <DropdownToggle
+              nav
+              //caret
+              className={s.headerSvgFlipColor}
+            >
               <span className={`${s.avatar} rounded-circle float-left mr-2`}>
                 {avatar ? (
                   <img
@@ -363,9 +368,7 @@ class Header extends React.Component {
             <DropdownMenu
               right
               className={`${s.notificationsWrapper} py-0 animated animated-fast fadeInUp`}
-            >
-              <Notifications />
-            </DropdownMenu>
+            ></DropdownMenu>
           </Dropdown>
           <Dropdown
             nav
@@ -382,14 +385,14 @@ class Header extends React.Component {
               right
               className={`${s.headerDropdownLinks} super-colors`}
             >
-              <DropdownItem href="http://demo-flatlogic2.herokuapp.com/sing-app-react/#/app/profile">
+              <DropdownItem tag={Link} to="/app/profile">
                 <span className={s.headerDropdownIcon}>
                   <PersonIcon />
                 </span>{" "}
                 My Account
               </DropdownItem>
               <DropdownItem divider />
-              <DropdownItem href="http://demo-flatlogic2.herokuapp.com/sing-app-react/#/app/extra/calendar">
+              {/* <DropdownItem href="http://demo-flatlogic2.herokuapp.com/sing-app-react/#/app/extra/calendar">
                 <span className={s.headerDropdownIcon}>
                   <CalendarIcon />
                 </span>
@@ -401,7 +404,7 @@ class Header extends React.Component {
                 </span>
                 Inbox &nbsp;&nbsp;
               </DropdownItem>
-              <DropdownItem divider />
+              <DropdownItem divider /> */}
               <DropdownItem onClick={this.doLogout}>
                 <span className={s.headerDropdownIcon}>
                   <PowerIcon />
