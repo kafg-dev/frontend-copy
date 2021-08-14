@@ -101,11 +101,89 @@ class Sidebar extends React.Component {
 
     const usersChildrenLinks = [];
 
+    let sidebarNav;
+
     if (user?.role === "admin") {
       usersChildrenLinks.push({
         header: "User Management",
         link: "/admin/users",
       });
+      sidebarNav = (
+        <>
+          <LinksGroup
+            onActiveSidebarItemChange={(activeItem) =>
+              this.props.dispatch(changeActiveSidebarItem(activeItem))
+            }
+            activeItem={this.props.activeItem}
+            header="Statistics"
+            iconElement={<PieChartIcon />}
+            iconName="flaticon-controls"
+            link="/admin/users"
+            isHeader
+            index="admin-statistics"
+            //labelColor="info"
+            //label="Admin"
+          />
+          <LinksGroup
+            onActiveSidebarItemChange={(activeItem) =>
+              this.props.dispatch(changeActiveSidebarItem(activeItem))
+            }
+            activeItem={this.props.activeItem}
+            header="User Controls"
+            iconElement={<PersonIcon />}
+            iconName="flaticon-user"
+            link="/admin/users"
+            isHeader
+            index="admin-controls"
+            //labelColor="info"
+            //label="Admin"
+          />
+        </>
+      );
+    } else {
+      sidebarNav = (
+        <>
+          <LinksGroup
+            onActiveSidebarItemChange={(activeItem) =>
+              this.props.dispatch(changeActiveSidebarItem(activeItem))
+            }
+            activeItem={this.props.activeItem}
+            header="Sing Package"
+            iconElement={<PieChartIcon />}
+            iconName="flaticon-controls"
+            link="/app/package"
+            isHeader
+            index="packages"
+          />
+          <LinksGroup
+            onActiveSidebarItemChange={(activeItem) =>
+              this.props.dispatch(changeActiveSidebarItem(activeItem))
+            }
+            activeItem={this.props.activeItem}
+            header="Dashboard"
+            isHeader
+            iconElement={<KeypadIcon />}
+            iconName="flaticon-network"
+            link="/app/main"
+            index="main"
+            childrenLinks={dashboardChildrenLinks}
+          />
+          <LinksGroup
+            onActiveSidebarItemChange={(activeItem) =>
+              this.props.dispatch(changeActiveSidebarItem(activeItem))
+            }
+            activeItem={this.props.activeItem}
+            header="Users"
+            isHeader
+            iconElement={<BrowserIcon />}
+            iconName="flaticon-layers"
+            link="/admin"
+            index="admin"
+            exact={false}
+            childrenLinks={usersChildrenLinks}
+          />
+        </>
+      );
     }
 
     usersChildrenLinks.push(
@@ -142,35 +220,7 @@ class Sidebar extends React.Component {
             </a>
           </header>
           <ul className={s.nav}>
-            <LinksGroup
-              onActiveSidebarItemChange={(activeItem) =>
-                this.props.dispatch(changeActiveSidebarItem(activeItem))
-              }
-              activeItem={this.props.activeItem}
-              header="Dashboard"
-              isHeader
-              iconName="flaticon-home"
-              iconElement={<HomeIcon />}
-              link="/app/main"
-              index="main"
-              childrenLinks={dashboardChildrenLinks}
-            />
-            <LinksGroup
-              onActiveSidebarItemChange={(activeItem) =>
-                this.props.dispatch(changeActiveSidebarItem(activeItem))
-              }
-              activeItem={this.props.activeItem}
-              header="Users"
-              isHeader
-              labelColor="danger"
-              iconElement={<PersonIcon />}
-              iconName="flaticon-user"
-              link="/admin"
-              index="admin"
-              //label="Real App"
-              exact={false}
-              childrenLinks={usersChildrenLinks}
-            />
+            {sidebarNav}
             {/* <LinksGroup
               header="Chat"
               link="/app/chat"
