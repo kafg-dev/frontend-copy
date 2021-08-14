@@ -25,7 +25,7 @@ async function findMe(user) {
   //const response = await axios.get("/auth/me");
   //return response.data;
   //} else {
-  return { ...mockUser, firstName: user.fullname };
+  return { ...mockUser, firstName: user.fullname, role: user.role };
   //}
 }
 
