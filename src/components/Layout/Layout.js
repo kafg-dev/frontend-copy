@@ -155,7 +155,7 @@ class Layout extends React.Component {
                     <Route
                       path="/app/main"
                       exact
-                      render={() => <Redirect to="/app/main/analytics" />}
+                      render={() => <Redirect to="/app/main/statistics" />}
                     />
                     <Route
                       path="/app/main/dashboard"
@@ -164,7 +164,7 @@ class Layout extends React.Component {
                     />
                     <Route path="/app/main/widgets" exact component={Widgets} />
                     <Route
-                      path="/app/main/analytics"
+                      path="/app/main/statistics"
                       exact
                       component={DashboardAnalytics}
                     />

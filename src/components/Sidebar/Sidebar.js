@@ -87,7 +87,7 @@ class Sidebar extends React.Component {
     const dashboardChildrenLinks = [
       {
         header: "Statistics",
-        link: "/app/main/analytics",
+        link: "/app/main/statistics",
       },
       {
         header: "Call Management",
