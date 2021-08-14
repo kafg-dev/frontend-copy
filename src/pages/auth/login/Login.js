@@ -49,6 +49,7 @@ class Login extends React.Component {
     this.doLogin = this.doLogin.bind(this);
     this.changeEmail = this.changeEmail.bind(this);
     this.changePassword = this.changePassword.bind(this);
+    this.handleKeypress = this.handleKeypress.bind(this);
     this.signUp = this.signUp.bind(this);
 
     props.dispatch(authError(""));
@@ -60,6 +61,12 @@ class Login extends React.Component {
 
   changePassword(event) {
     this.setState({ password: event.target.value });
+  }
+
+  handleKeypress(e) {
+    if (e.charCode === 13) {
+      this.doLogin(e);
+    }
   }
 
   doLogin(e) {
@@ -131,6 +138,7 @@ class Login extends React.Component {
                 }}
                 value={this.state.password}
                 onChange={this.changePassword}
+                onKeyPress={this.handleKeypress}
                 margin="normal"
                 placeholder="Password"
                 type="password"
