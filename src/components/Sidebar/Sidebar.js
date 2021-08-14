@@ -81,6 +81,48 @@ class Sidebar extends React.Component {
   }
 
   render() {
+    const user = this.props.currentUser;
+    console.log(user);
+
+    const dashboardChildrenLinks = [
+      {
+        header: "Statistics",
+        link: "/app/main/analytics",
+      },
+      {
+        header: "Call Management",
+        link: "/app/main/dashboard",
+      },
+      {
+        header: "History Logs",
+        link: "/app/main/widgets",
+      },
+    ];
+
+    const usersChildrenLinks = [];
+
+    if (user?.role === "admin") {
+      usersChildrenLinks.push({
+        header: "User Management",
+        link: "/admin/users",
+      });
+    }
+
+    usersChildrenLinks.push(
+      {
+        header: "My Profile",
+        link: "/app/profile",
+      },
+      {
+        header: "Edit Profile",
+        link: "/app/edit_profile",
+      },
+      {
+        header: "Change Password",
+        link: "/app/password",
+      }
+    );
+
     return (
       <div
         className={`${
@@ -111,20 +153,7 @@ class Sidebar extends React.Component {
               iconElement={<HomeIcon />}
               link="/app/main"
               index="main"
-              childrenLinks={[
-                {
-                  header: "Statistics",
-                  link: "/app/main/analytics",
-                },
-                {
-                  header: "Call Management",
-                  link: "/app/main/dashboard",
-                },
-                {
-                  header: "History Logs",
-                  link: "/app/main/widgets",
-                },
-              ]}
+              childrenLinks={dashboardChildrenLinks}
             />
             <LinksGroup
               onActiveSidebarItemChange={(activeItem) =>
@@ -140,24 +169,7 @@ class Sidebar extends React.Component {
               index="admin"
               //label="Real App"
               exact={false}
-              childrenLinks={[
-                {
-                  header: "User Management",
-                  link: "/admin/users",
-                },
-                {
-                  header: "My Profile",
-                  link: "/app/profile",
-                },
-                {
-                  header: "Edit Profile",
-                  link: "/app/edit_profile",
-                },
-                {
-                  header: "Change Password",
-                  link: "/app/password",
-                },
-              ]}
+              childrenLinks={usersChildrenLinks}
             />
             {/* <LinksGroup
               header="Chat"
@@ -609,6 +621,7 @@ function mapStateToProps(store) {
     activeItem: store.navigation.activeItem,
     navbarType: store.navigation.navbarType,
     sidebarColor: store.layout.sidebarColor,
+    currentUser: store.auth.currentUser,
   };
 }
 
