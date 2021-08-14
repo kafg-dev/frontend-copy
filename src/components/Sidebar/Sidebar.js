@@ -82,32 +82,10 @@ class Sidebar extends React.Component {
 
   render() {
     const user = this.props.currentUser;
-    console.log(user);
-
-    const dashboardChildrenLinks = [
-      {
-        header: "Statistics",
-        link: "/app/main/statistics",
-      },
-      {
-        header: "Call Management",
-        link: "/app/main/dashboard",
-      },
-      {
-        header: "History Logs",
-        link: "/app/main/widgets",
-      },
-    ];
-
-    const usersChildrenLinks = [];
 
     let sidebarNav;
 
     if (user?.role === "admin") {
-      usersChildrenLinks.push({
-        header: "User Management",
-        link: "/admin/users",
-      });
       sidebarNav = (
         <>
           <LinksGroup
@@ -148,58 +126,40 @@ class Sidebar extends React.Component {
               this.props.dispatch(changeActiveSidebarItem(activeItem))
             }
             activeItem={this.props.activeItem}
-            header="Sing Package"
+            header="Statistics"
+            isHeader
             iconElement={<PieChartIcon />}
             iconName="flaticon-controls"
-            link="/app/package"
-            isHeader
-            index="packages"
+            link="/app/main/statistics"
+            index="client-statistics"
           />
           <LinksGroup
             onActiveSidebarItemChange={(activeItem) =>
               this.props.dispatch(changeActiveSidebarItem(activeItem))
             }
             activeItem={this.props.activeItem}
-            header="Dashboard"
+            header="Call Management"
             isHeader
             iconElement={<KeypadIcon />}
             iconName="flaticon-network"
-            link="/app/main"
-            index="main"
-            childrenLinks={dashboardChildrenLinks}
+            link="/app/main/dashboard"
+            index="client-call-management"
           />
           <LinksGroup
             onActiveSidebarItemChange={(activeItem) =>
               this.props.dispatch(changeActiveSidebarItem(activeItem))
             }
             activeItem={this.props.activeItem}
-            header="Users"
+            header="History Logs"
             isHeader
             iconElement={<BrowserIcon />}
             iconName="flaticon-layers"
-            link="/admin"
-            index="admin"
-            exact={false}
-            childrenLinks={usersChildrenLinks}
+            link="/app/main/widgets"
+            index="client-history-logs"
           />
         </>
       );
     }
-
-    usersChildrenLinks.push(
-      {
-        header: "My Profile",
-        link: "/app/profile",
-      },
-      {
-        header: "Edit Profile",
-        link: "/app/edit_profile",
-      },
-      {
-        header: "Change Password",
-        link: "/app/password",
-      }
-    );
 
     return (
       <div
