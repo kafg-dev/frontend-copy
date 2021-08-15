@@ -80,6 +80,10 @@
   padding: 30px 0 10px;
   overflow-y: auto;
   overflow-x: hidden;
+
+  li {
+    padding: 5px 0;
+  }
 }
 
 .navTitle {
