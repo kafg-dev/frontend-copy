@@ -171,7 +171,8 @@ class Header extends React.Component {
     const { openUsersList } = this.props;
     const navbarType = localStorage.getItem("navbarType") || "static";
 
-    const user = this.props.currentUser;
+    const user =
+      this.props.currentUser || JSON.parse(localStorage.getItem("user"));
     const avatar =
       user && user.avatar && user.avatar.length && user.avatar[0].publicUrl;
 
