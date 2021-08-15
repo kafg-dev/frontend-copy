@@ -123,7 +123,7 @@ class Sidebar extends React.Component {
             isHeader
             iconElement={<BrowserIcon />}
             iconName="flaticon-layers"
-            link="/app/main/widgets"
+            link="/app/main/history-logs"
             index="client-history-logs"
           />
         </>

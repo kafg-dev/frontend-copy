@@ -162,7 +162,11 @@ class Layout extends React.Component {
                       exact
                       component={Dashboard}
                     />
-                    <Route path="/app/main/widgets" exact component={Widgets} />
+                    <Route
+                      path="/app/main/history-logs"
+                      exact
+                      component={Widgets}
+                    />
                     <Route
                       path="/app/main/statistics"
                       exact
