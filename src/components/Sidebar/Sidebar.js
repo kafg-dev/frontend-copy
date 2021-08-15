@@ -95,24 +95,24 @@ class Sidebar extends React.Component {
               this.props.dispatch(changeActiveSidebarItem(activeItem))
             }
             activeItem={this.props.activeItem}
-            header="Statistics"
-            isHeader
-            iconElement={<PieChartIcon />}
-            iconName="flaticon-controls"
-            link="/app/main/statistics"
-            index="client-statistics"
-          />
-          <LinksGroup
-            onActiveSidebarItemChange={(activeItem) =>
-              this.props.dispatch(changeActiveSidebarItem(activeItem))
-            }
-            activeItem={this.props.activeItem}
             header="Call Management"
             isHeader
             iconElement={<KeypadIcon />}
             iconName="flaticon-network"
             link="/app/main/dashboard"
             index="client-call-management"
+          />
+          <LinksGroup
+            onActiveSidebarItemChange={(activeItem) =>
+              this.props.dispatch(changeActiveSidebarItem(activeItem))
+            }
+            activeItem={this.props.activeItem}
+            header="Statistics"
+            isHeader
+            iconElement={<PieChartIcon />}
+            iconName="flaticon-controls"
+            link="/app/main/statistics"
+            index="client-statistics"
           />
           <LinksGroup
             onActiveSidebarItemChange={(activeItem) =>
