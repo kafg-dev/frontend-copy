@@ -99,7 +99,7 @@ class Sidebar extends React.Component {
             isHeader
             iconElement={<KeypadIcon />}
             iconName="flaticon-network"
-            link="/app/main/dashboard"
+            link="/app/main/call-management"
             index="client-call-management"
           />
           <LinksGroup
