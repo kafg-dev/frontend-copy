@@ -1,26 +1,36 @@
-import React, { Component } from 'react';
-import cx from 'classnames';
-import { Button } from 'reactstrap';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import Joyride, { STATUS } from 'react-joyride';
-import { DashboardThemes, SidebarTypes, NavbarTypes } from '../../reducers/layout';
-import { changeTheme, changeSidebarColor, changeNavbarColor, navbarTypeToggle, sidebarTypeToggle } from '../../actions/layout';
-import CustomColorPicker from '../ColorPicker';
-import config from '../../config';
+import React, { Component } from "react";
+import cx from "classnames";
+import { Button } from "reactstrap";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import Joyride, { STATUS } from "react-joyride";
+import {
+  DashboardThemes,
+  SidebarTypes,
+  NavbarTypes,
+} from "../../reducers/layout";
+import {
+  changeTheme,
+  changeSidebarColor,
+  changeNavbarColor,
+  navbarTypeToggle,
+  sidebarTypeToggle,
+} from "../../actions/layout";
+import CustomColorPicker from "../ColorPicker";
+import config from "../../config";
 
-import Widget from '../Widget';
+import Widget from "../Widget";
 
-import s from './Helper.module.scss'; // eslint-disable-line
+import s from "./Helper.module.scss"; // eslint-disable-line
 
 class Helper extends Component {
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
-    dashboardTheme: PropTypes.string
+    dashboardTheme: PropTypes.string,
   };
 
   static defaultProps = {
-    dashboardTheme: DashboardThemes.DARK
+    dashboardTheme: DashboardThemes.LIGHT,
   };
 
   state = {
@@ -28,34 +38,35 @@ class Helper extends Component {
     run: false,
     steps: [
       {
-        content: 'Easily adjust navbar 😃',
-        placement: 'left',
-        target: '.navbar-type-switcher',
-        textAlign: 'center',
+        content: "Easily adjust navbar 😃",
+        placement: "left",
+        target: ".navbar-type-switcher",
+        textAlign: "center",
         disableBeacon: true,
       },
       {
         content: "Choose a color for navbar, create unique layout 😄",
-        placement: 'left',
-        target: '.navbar-color-picker',
+        placement: "left",
+        target: ".navbar-color-picker",
       },
       {
         content: "Also customize sidebar type, it's cool 🙂",
-        placement: 'left',
-        target: '.sidebar-type-switcher',
+        placement: "left",
+        target: ".sidebar-type-switcher",
       },
       {
-        content: 'We also have different colors for sidebar, pick one from palette 😃',
-        placement: 'left',
-        target: '.sidebar-color-picker',
+        content:
+          "We also have different colors for sidebar, pick one from palette 😃",
+        placement: "left",
+        target: ".sidebar-color-picker",
       },
       {
-        content: 'Purchase out template if you like it, we appreciate it 😄!',
-        placement: 'left',
-        target: '.purchase-button'
+        content: "Purchase out template if you like it, we appreciate it 😄!",
+        placement: "left",
+        target: ".purchase-button",
       },
     ],
-  }
+  };
 
   componentDidUpdate(prevProps, prevState) {
     if (!prevState.modalIsOpen && this.state.modalIsOpen) {
@@ -66,10 +77,9 @@ class Helper extends Component {
   handleJoyrideCallback = (CallBackProps) => {
     const { status } = CallBackProps;
 
-    if (([STATUS.FINISHED, STATUS.SKIPPED]).includes(status)) {
+    if ([STATUS.FINISHED, STATUS.SKIPPED].includes(status)) {
       this.setState({ run: false });
     }
-
   };
 
   start = () => {
@@ -85,36 +95,35 @@ class Helper extends Component {
   };
 
   changeTheme = (state) => {
-    localStorage.setItem("dashboardTheme", state)
+    localStorage.setItem("dashboardTheme", state);
     this.props.dispatch(changeTheme(state));
-    this.props.dispatch(changeSidebarColor(state))
+    this.props.dispatch(changeSidebarColor(state));
   };
 
   navbarStateToggle = (state) => {
-    localStorage.setItem("navbarType", state)
-    this.props.dispatch(navbarTypeToggle(state))
-  }
+    localStorage.setItem("navbarType", state);
+    this.props.dispatch(navbarTypeToggle(state));
+  };
 
   sidebarStateToggle = (state) => {
-    localStorage.setItem("sidebarType", state)
-    this.props.dispatch(sidebarTypeToggle(state))
-  }
+    localStorage.setItem("sidebarType", state);
+    this.props.dispatch(sidebarTypeToggle(state));
+  };
 
   updateColor = (value) => {
-    localStorage.setItem("navbarColor", value)
-    this.props.dispatch(changeNavbarColor(value))
-  }
+    localStorage.setItem("navbarColor", value);
+    this.props.dispatch(changeNavbarColor(value));
+  };
 
   render() {
     const { isOpened } = this.state;
-    const navbarColor = localStorage.getItem("navbarColor")
-    const sidebarColor = localStorage.getItem("dashboardTheme")
-    const navbarType = localStorage.getItem("navbarType")
-    const sidebarType = localStorage.getItem("sidebarType")
+    const navbarColor = localStorage.getItem("navbarColor");
+    const sidebarColor = localStorage.getItem("dashboardTheme");
+    const navbarType = localStorage.getItem("navbarType");
+    const sidebarType = localStorage.getItem("sidebarType");
 
     return (
       <div className={cx(s.themeHelper, { [s.themeHelperOpened]: isOpened })}>
-
         <Joyride
           callback={this.handleJoyrideCallback}
           continuous={true}
@@ -126,11 +135,11 @@ class Helper extends Component {
           outline="none"
           styles={{
             options: {
-              arrowColor: '#ffffff',
-              backgroundColor: '#ffffff',
-              overlayColor: 'rgba(79, 26, 0, 0.4)',
-              primaryColor: '#000',
-              textColor: '#495057',
+              arrowColor: "#ffffff",
+              backgroundColor: "#ffffff",
+              overlayColor: "rgba(79, 26, 0, 0.4)",
+              primaryColor: "#000",
+              textColor: "#495057",
               spotlightPadding: 0,
               zIndex: 1000,
               padding: 5,
@@ -141,26 +150,26 @@ class Helper extends Component {
               padding: 15,
             },
             tooltipContent: {
-              padding: '20px 5px 0',
+              padding: "20px 5px 0",
             },
             floater: {
               arrow: {
-                padding: 10
+                padding: 10,
               },
             },
             buttonClose: {
-              display: 'none'
+              display: "none",
             },
             buttonNext: {
               backgroundColor: "#21AE8C",
               fontSize: 13,
               borderRadius: 4,
               color: "#ffffff",
-              fontWeight: "bold"
+              fontWeight: "bold",
             },
             buttonBack: {
               color: "#798892",
-              marginLeft: 'auto',
+              marginLeft: "auto",
               fontSize: 13,
               marginRight: 5,
             },
@@ -171,36 +180,51 @@ class Helper extends Component {
           }}
         />
 
-          <div className={`${s.themeHelperBtn} bg-primary helper-button`} onClick={this.toggle}>
-            <div className={cx(s.themeHelperSpinner, 'text-white')}>
-              <i className="la la-cog" />
-              <i className="la la-cog" />
-            </div>
-          </div>
-        <Widget
-          className={s.themeHelperContent}
+        <div
+          className={`${s.themeHelperBtn} bg-primary helper-button`}
+          onClick={this.toggle}
         >
+          <div className={cx(s.themeHelperSpinner, "text-white")}>
+            <i className="la la-cog" />
+            <i className="la la-cog" />
+          </div>
+        </div>
+        <Widget className={s.themeHelperContent}>
           <div className={s.helperHeader}>
             <h5 className="m-0">Theme</h5>
-            <Button onClick={this.start} outline color="info">Check out tour!</Button>  
-          </div>    
+            <Button onClick={this.start} outline color="info">
+              Check out tour!
+            </Button>
+          </div>
 
           <div className="theme-settings">
             <h5 className="navbar-type-switcher">Navbar Type</h5>
             <div className="form-group row">
               <div className="abc-radio">
-                <input onChange={() => this.navbarStateToggle(NavbarTypes.STATIC)} type="radio" checked={navbarType === NavbarTypes.STATIC ? true : ''} name="navbar-type" id="navbar_static" />
+                <input
+                  onChange={() => this.navbarStateToggle(NavbarTypes.STATIC)}
+                  type="radio"
+                  checked={navbarType === NavbarTypes.STATIC ? true : ""}
+                  name="navbar-type"
+                  id="navbar_static"
+                />
                 <label htmlFor="navbar_static">Static</label>
               </div>
-     
+
               <div className="abc-radio">
-                <input onChange={() => this.navbarStateToggle(NavbarTypes.FLOATING)} type="radio" checked={navbarType === NavbarTypes.FLOATING ? true : ''} name="navbar-type" id="navbar_floating" />
+                <input
+                  onChange={() => this.navbarStateToggle(NavbarTypes.FLOATING)}
+                  type="radio"
+                  checked={navbarType === NavbarTypes.FLOATING ? true : ""}
+                  name="navbar-type"
+                  id="navbar_floating"
+                />
                 <label htmlFor="navbar_floating">Floating</label>
               </div>
             </div>
 
             <h5 className="mt-4 navbar-color-picker">Navbar Color</h5>
-            <CustomColorPicker 
+            <CustomColorPicker
               colors={config.app.colors}
               activeColor={navbarColor}
               updateColor={this.updateColor}
@@ -210,24 +234,37 @@ class Helper extends Component {
             <h5 className="mt-4 sidebar-type-switcher">Sidebar Type</h5>
             <div className="form-group row">
               <div className="abc-radio">
-                <input type="radio" onChange={() => this.sidebarStateToggle(SidebarTypes.TRANSPARENT)} checked={sidebarType === SidebarTypes.TRANSPARENT ? true : ''} name="sidebar-type" id="sidebar_transparent" />
+                <input
+                  type="radio"
+                  onChange={() =>
+                    this.sidebarStateToggle(SidebarTypes.TRANSPARENT)
+                  }
+                  checked={sidebarType === SidebarTypes.TRANSPARENT ? true : ""}
+                  name="sidebar-type"
+                  id="sidebar_transparent"
+                />
                 <label htmlFor="sidebar_transparent">Transparent</label>
               </div>
-    
+
               <div className="abc-radio">
-                <input type="radio" onChange={() => this.sidebarStateToggle(SidebarTypes.SOLID)} checked={sidebarType === SidebarTypes.SOLID ? true : ''} name="sidebar-type" id="sidebar_solid" />
+                <input
+                  type="radio"
+                  onChange={() => this.sidebarStateToggle(SidebarTypes.SOLID)}
+                  checked={sidebarType === SidebarTypes.SOLID ? true : ""}
+                  name="sidebar-type"
+                  id="sidebar_solid"
+                />
                 <label htmlFor="sidebar_solid">Solid</label>
               </div>
             </div>
 
             <h5 className="mt-4 sidebar-color-picker">Sidebar Color</h5>
-            <CustomColorPicker 
+            <CustomColorPicker
               colors={config.app.colors}
               activeColor={sidebarColor}
               updateColor={this.changeTheme}
               customizationItem={"sidebar"}
             />
-
           </div>
           <div className="mt-5">
             <Button
@@ -266,9 +303,7 @@ class Helper extends Component {
             </Button>
           </div>
           <div className="mt-lg d-flex flex-column align-items-center theme-helper__sharing">
-            <span className="fs-sm">
-              Thank you for sharing!
-            </span>
+            <span className="fs-sm">Thank you for sharing!</span>
             <div className="d-flex justify-content-center text-light mt-2">
               <a
                 target="_blank"
@@ -298,7 +333,7 @@ function mapStateToProps(store) {
     sidebarColor: store.layout.sidebarColor,
     navbarColor: store.layout.navbarColor,
     navbarType: store.layout.navbarType,
-    sidebarType: store.layout.sidebarType
+    sidebarType: store.layout.sidebarType,
   };
 }
 

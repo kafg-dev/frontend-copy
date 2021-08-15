@@ -113,7 +113,7 @@ export function receiveToken(token) {
 
 export function loginUser(creds) {
   return (dispatch) => {
-    localStorage.setItem("dashboardTheme", "dark");
+    localStorage.setItem("dashboardTheme", "light");
     localStorage.setItem("navbarColor", "#fff");
     localStorage.setItem("navbarType", "static");
     if (!config.isBackend) {

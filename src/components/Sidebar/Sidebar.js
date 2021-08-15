@@ -144,9 +144,15 @@ class Sidebar extends React.Component {
           className={s.root}
         >
           <header className={s.logo}>
-            <a href="https://demo.flatlogic.com/sing-app-react/">
-              <span className={s.logoStyle}>Vodevi Portal</span>{" "}
-            </a>
+            {/*<a href="https://demo.flatlogic.com/sing-app-react/">*/}
+            <span className={s.logoStyle}>
+              Vodevi Portal
+              <sup className={s.logoSuperscript}>
+                {" "}
+                {user?.role === "admin" ? "admin" : "client"}
+              </sup>
+            </span>
+            {/*</a>*/}
           </header>
           <ul className={s.nav}>{sidebarNav}</ul>
         </nav>

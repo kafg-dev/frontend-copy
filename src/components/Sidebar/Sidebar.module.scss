@@ -1,4 +1,4 @@
-@import '../../styles/app';
+@import "../../styles/app";
 
 .root {
   width: $sidebar-width-open;
@@ -19,7 +19,18 @@
   text-transform: uppercase;
   font-weight: 400;
   font-size: 16.5px;
-  text-shadow: 4px 4px 15px rgba(92, 176, 255, .3);
+  vertical-align: text-bottom;
+  text-shadow: 4px 4px 15px rgba(92, 176, 255, 0.3);
+}
+
+.logoSuperscript {
+  color: var(--sidebar-icon-bg);
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 8px;
+  vertical-align: text-top;
+  line-height: 200%;
+  text-shadow: 4px 4px 15px rgba(92, 176, 255, 0.3);
 }
 
 .sidebarWrapper {
@@ -35,12 +46,11 @@
 }
 
 .sidebarClose.sidebarWrapper {
-  width: $sidebar-width-closed; 
+  width: $sidebar-width-closed;
   @include media-breakpoint-down(sm) {
     width: 0;
   }
 }
-
 
 .logo {
   margin: 15px 0;
@@ -77,7 +87,7 @@
   font-size: $font-size-mini;
   transition: opacity $sidebar-transition-time ease-in-out;
   color: var(--sidebar-section);
-  opacity: .6;
+  opacity: 0.6;
   font-weight: bold;
 }
 
@@ -122,7 +132,7 @@
   padding-right: 15px;
 
   & > li {
-    margin: 25px 0
+    margin: 25px 0;
   }
 
   li > a {
