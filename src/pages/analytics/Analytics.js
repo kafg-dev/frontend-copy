@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import cx from "classnames";
-import { Col, Row, Progress } from "reactstrap";
+import { Col, Row, Card, Progress } from "reactstrap";
 
 import Widget from "../../components/Widget";
 import Trend from "react-trend";
@@ -265,6 +265,73 @@ class Analytics extends Component {
                 >
                   <HighchartsReact options={cdh.line} />
                 </Widget>
+              </Col>
+            </Row>
+            <Row>
+              <Col md="6" xl="4">
+                <Card
+                  className={s.bgMidnightBloom}
+                  //className="p-3 mb-5 "
+                >
+                  <div className={s.alignBoxRow}>
+                    <div className="text-warning font-size-xl font-weight-bold pr-2">
+                      500 Min
+                    </div>
+                    <div className="flex-grow-1">
+                      <Progress
+                        animated
+                        className="progress-bar-rounded bg-white-50 progress-sm"
+                        color="warning"
+                        value="83"
+                      />
+                    </div>
+                  </div>
+                  <div className="text-white-50 pt-2">
+                    USED MINUTES (600 Min)
+                  </div>
+                </Card>
+              </Col>
+              <Col md="6" xl="4">
+                <Card
+                  className={s.bgAsteroid}
+                  //className="p-3 mb-5 "
+                >
+                  <div className={s.alignBoxRow}>
+                    <div className="text-danger font-size-xl font-weight-bold pr-2">
+                      300 MB
+                    </div>
+                    <div className="flex-grow-1">
+                      <Progress
+                        animated
+                        className="progress-bar-rounded bg-white-50 progress-sm"
+                        color="danger"
+                        value="60"
+                      />
+                    </div>
+                  </div>
+                  <div className="text-white-50 pt-2">USED STORAGE (500MB)</div>
+                </Card>
+              </Col>
+              <Col md="6" xl="4">
+                <Card
+                  className={s.bgMidnightBloom}
+                  //className="p-3 mb-5 "
+                >
+                  <div className={s.alignBoxRow}>
+                    <div className="text-warning font-size-xl font-weight-bold pr-2">
+                      70 Call
+                    </div>
+                    <div className="flex-grow-1">
+                      <Progress
+                        animated
+                        className="progress-bar-rounded bg-white-50 progress-sm"
+                        color="warning"
+                        value="70"
+                      />
+                    </div>
+                  </div>
+                  <div className="text-white-50 pt-2">USED CALLS (100)</div>
+                </Card>
               </Col>
             </Row>
           </div>
