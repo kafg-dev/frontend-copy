@@ -17,6 +17,9 @@ import mock from "./mock";
 import s from "./Analitycs.module.scss";
 import { receiveDataRequest } from "../../actions/analytics";
 
+import ApexChart from "react-apexcharts";
+import chartsData from "./mockApex";
+
 class Analytics extends Component {
   static propTypes = {
     visits: PropTypes.any,
@@ -103,8 +106,14 @@ class Analytics extends Component {
     this.props.dispatch(receiveDataRequest());
   }
 
+  state = {
+    cd: chartsData,
+  };
+
   render() {
     const { visits, isReceiving, performance, server, mainChart } = this.props;
+
+    const { cd } = this.state;
 
     return (
       <div>
@@ -218,6 +227,44 @@ class Analytics extends Component {
                       </Col>
                     </Row>
                   </div>
+                </Widget>
+              </Col>
+            </Row>
+            <Row>
+              <Col xl={5} lg={5} xs={12}>
+                <Widget
+                  title={
+                    <h5>
+                      <span className="fw-semi-bold">Vodevi Call Volume</span>
+                    </h5>
+                  }
+                  //close
+                  //collapse
+                >
+                  <ApexChart
+                    className="sparkline-chart"
+                    type={"bar"}
+                    series={cd.column.series}
+                    options={cd.column.options}
+                  />
+                </Widget>
+              </Col>
+              <Col xl={7} lg={7} xs={12}>
+                <Widget
+                  title={
+                    <h5>
+                      <span className="fw-semi-bold">Vodevi Call Volume</span>
+                    </h5>
+                  }
+                  //close
+                  //collapse
+                >
+                  <ApexChart
+                    className="sparkline-chart"
+                    type={"bar"}
+                    series={cd.column.series}
+                    options={cd.column.options}
+                  />
                 </Widget>
               </Col>
             </Row>
