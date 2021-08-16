@@ -155,17 +155,19 @@ class Layout extends React.Component {
                     <Route
                       path="/app/main"
                       exact
-                      render={() => <Redirect to="/app/main/call-management" />}
+                      render={() => <Redirect to="/app/main/statistics" />}
                     />
                     <Route
                       path="/app/main/call-management"
                       exact
-                      component={Dashboard}
+                      render={() => <Redirect to="/app/main/statistics" />}
+                      //component={Dashboard}
                     />
                     <Route
                       path="/app/main/history-logs"
                       exact
-                      component={Widgets}
+                      render={() => <Redirect to="/app/main/statistics" />}
+                      //component={Widgets}
                     />
                     <Route
                       path="/app/main/statistics"

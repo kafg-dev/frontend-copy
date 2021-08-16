@@ -60,7 +60,7 @@ function loginUser(dispatch, login, password, history, setIsLoading, setError) {
       setIsLoading(false);
       dispatch({ type: "LOGIN_SUCCESS" });
 
-      history.push("/app/call-management");
+      history.push("/app/statistics");
     }, 2000);
   } else {
     dispatch({ type: "LOGIN_FAILURE" });
