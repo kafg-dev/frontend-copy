@@ -19,6 +19,7 @@ import { receiveDataRequest } from "../../actions/analytics";
 
 import ApexChart from "react-apexcharts";
 import chartsData from "./mockApex";
+import highChartsData from "./mockHighcharts";
 
 class Analytics extends Component {
   static propTypes = {
@@ -108,12 +109,13 @@ class Analytics extends Component {
 
   state = {
     cd: chartsData,
+    cdh: highChartsData,
   };
 
   render() {
     const { visits, isReceiving, performance, server, mainChart } = this.props;
 
-    const { cd } = this.state;
+    const { cd, cdh } = this.state;
 
     return (
       <div>
@@ -253,18 +255,15 @@ class Analytics extends Component {
                 <Widget
                   title={
                     <h5>
-                      <span className="fw-semi-bold">Vodevi Call Volume</span>
+                      <span className="fw-semi-bold">
+                        Duration of Vodevi Calls
+                      </span>
                     </h5>
                   }
                   //close
                   //collapse
                 >
-                  <ApexChart
-                    className="sparkline-chart"
-                    type={"bar"}
-                    series={cd.column.series}
-                    options={cd.column.options}
-                  />
+                  <HighchartsReact options={cdh.line} />
                 </Widget>
               </Col>
             </Row>
