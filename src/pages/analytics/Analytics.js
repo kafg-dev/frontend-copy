@@ -105,11 +105,124 @@ class Analytics extends Component {
 
   render() {
     const { visits, isReceiving, performance, server, mainChart } = this.props;
+
     return (
       <div>
         <h1 className="page-title">Statistics</h1>
         <div className={s.sidesWrapper}>
           <div className={s.analyticsSide}>
+            <Row>
+              <Col xl={3} lg={4} md={6} xs={12}>
+                <Widget>
+                  <div className="clearfix">
+                    <Row className="flex-nowrap">
+                      <Col xs={3}>
+                        <span className="widget-icon">
+                          <i className="fi flaticon-like text-primary" />
+                        </span>
+                      </Col>
+                      <Col xs="9">
+                        <h6 className="m-0">VODEVI CALLS (YEAR)</h6>
+                        <p className="h2 m-0 fw-normal">4,332</p>
+                      </Col>
+                    </Row>
+                    <Row className="flex-nowrap">
+                      <Col xs={6}>
+                        <h6 className="m-0">This month</h6>
+                        <p className="value5">16</p>
+                      </Col>
+                      <Col xs="6">
+                        <h6 className="m-0">Last Call</h6>
+                        <p className="value5">10 Oct 2021</p>
+                      </Col>
+                    </Row>
+                  </div>
+                </Widget>
+              </Col>
+              <Col xl={3} lg={4} md={6} xs={12}>
+                <Widget>
+                  <div className="clearfix">
+                    <Row className="flex-nowrap">
+                      <Col xs={3}>
+                        <span className="widget-icon">
+                          <i className="fi flaticon-magic-wand text-danger" />
+                        </span>
+                      </Col>
+                      <Col xs="9">
+                        <h6 className="m-0">VODEVI MINUTES (YEAR)</h6>
+                        <p className="h2 m-0 fw-normal">12,324</p>
+                      </Col>
+                    </Row>
+                    <Row className="flex-nowrap">
+                      <Col xs={6}>
+                        <h6 className="m-0">This month</h6>
+                        <p className="value5">190 min</p>
+                      </Col>
+                      <Col xs="6">
+                        <h6 className="m-0">Avg Minute</h6>
+                        <p className="value5">17 min</p>
+                      </Col>
+                    </Row>
+                  </div>
+                </Widget>
+              </Col>
+              <Col xl={3} lg={4} md={6} xs={12}>
+                <Widget>
+                  <div className="clearfix">
+                    <Row className="flex-nowrap">
+                      <Col xs={3}>
+                        <span className="widget-icon">
+                          <i className="fi flaticon-shuffle text-info" />
+                        </span>
+                      </Col>
+                      <Col xs="9">
+                        <h6 className="m-0">TOTAL SOLVED (YEAR)</h6>
+                        <p className="h2 m-0 fw-normal">4,330</p>
+                      </Col>
+                    </Row>
+                    <Row className="flex-nowrap">
+                      <Col xs={6}>
+                        <h6 className="m-0">Solved (Month)</h6>
+                        <p className="value5">562</p>
+                      </Col>
+                      <Col xs="6">
+                        <h6 className="m-0">Total Pending</h6>
+                        <p className="value5">32</p>
+                      </Col>
+                    </Row>
+                  </div>
+                </Widget>
+              </Col>
+              <Col xl={3} lg={4} md={6} xs={12}>
+                <Widget>
+                  <div className="clearfix">
+                    <Row className="flex-nowrap">
+                      <Col xs={3}>
+                        <span className="widget-icon">
+                          <i className="fi flaticon-diamond text-success" />
+                        </span>
+                      </Col>
+                      <Col xs="9">
+                        <h6 className="m-0">TOTAL LOGINS (YEAR)</h6>
+                        <p className="h2 m-0 fw-normal">156</p>
+                      </Col>
+                    </Row>
+                    <Row className="flex-nowrap">
+                      <Col xs={6}>
+                        <h6 className="m-0">This Month</h6>
+                        <p className="value5">17</p>
+                      </Col>
+                      <Col xs="6">
+                        <h6 className="m-0">Last Week</h6>
+                        <p className="value5">6</p>
+                      </Col>
+                    </Row>
+                  </div>
+                </Widget>
+              </Col>
+            </Row>
+          </div>
+          {/* <div className={s.analyticsSide}>
             <Row>
               <Col xs={12} xl={3} md={6}>
                 <div className="pb-xlg h-100">
@@ -356,7 +469,7 @@ class Analytics extends Component {
                 </Widget>
               </Col>
             </Row>
-          </div>
+          </div> */}
         </div>
       </div>
     );
